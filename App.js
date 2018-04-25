@@ -115,6 +115,9 @@ const styles = StyleSheet.create({
   channelTitle: {
     fontSize: 18,
     marginBottom: 5
+  },
+  playlistUpNext: {
+    fontSize: 24
   }
 });
 

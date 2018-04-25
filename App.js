@@ -27,12 +27,24 @@ import ChannelIcon from './icon.png';
 type Props = {};
 export default class rnvideo extends Component<Props> {
   render() {
+    const { width, height: screenHeight } = Dimensions.get('window');
+    // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
+    const height = width * 0.5625;
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
-          <Text>Content below: Click To Reopen Video</Text>
-          <View style={StyleSheet.absoluteFill} />
+        <TouchableOpacity onPress={this.handleOpen}>
+          <Text>Content Below: Click To Reopen Video</Text>
         </TouchableOpacity>
+        <View style={StyleSheet.absoluteFill}>
+          <Animated.View style={[{ width, height }]}>
+            <Video
+              repeat
+              style={StyleSheet.absoluteFill}
+              source={Lights}
+              resizeMode="contain"
+            />
+          </Animated.View>
+        </View>
       </View>
     );
   }
@@ -44,16 +56,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
   }
 });
 

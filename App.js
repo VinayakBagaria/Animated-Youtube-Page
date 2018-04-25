@@ -18,7 +18,8 @@ import {
   Animated
 } from 'react-native';
 import Video from 'react-native-video';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
+import TouchableIcon from './components/TouchableIcon';
 
 import Lights from './lights.mp4';
 import Thumbnail from './thumbnail.jpg';
@@ -44,7 +45,19 @@ export default class rnvideo extends Component<Props> {
               resizeMode="contain"
             />
           </Animated.View>
-          <Animated.ScrollView style={[styles.scrollView]} />
+          <Animated.ScrollView style={[styles.scrollView]}>
+            <View style={styles.padding}>
+              <Text style={styles.title}>Beautiful DJ Mixing Lights</Text>
+              <Text>1M Views</Text>
+              <View style={styles.likeRow}>
+                <TouchableIcon name="thumbs-up">10,000</TouchableIcon>
+                <TouchableIcon name="thumbs-down">4</TouchableIcon>
+                <TouchableIcon name="share">Share</TouchableIcon>
+                <TouchableIcon name="download">Save</TouchableIcon>
+                <TouchableIcon name="plus">Add to</TouchableIcon>
+              </View>
+            </View>
+          </Animated.ScrollView>
         </View>
       </View>
     );
@@ -61,6 +74,18 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: '#FFF'
+  },
+  title: {
+    fontSize: 28
+  },
+  likeRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15
+  },
+  padding: {
+    paddingVertical: 15,
+    paddingHorizontal: 15
   }
 });
 

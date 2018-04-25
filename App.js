@@ -57,6 +57,17 @@ export default class rnvideo extends Component<Props> {
                 <TouchableIcon name="plus">Add to</TouchableIcon>
               </View>
             </View>
+            <View style={[styles.channelInfo, styles.padding]}>
+              <Image
+                source={ChannelIcon}
+                style={styles.channelIcon}
+                resizeMode="contain"
+              />
+              <View style={styles.channelText}>
+                <Text style={styles.channelTitle}>Prerecorded MP3s</Text>
+                <Text>1M Subscribers</Text>
+              </View>
+            </View>
           </Animated.ScrollView>
         </View>
       </View>
@@ -86,6 +97,24 @@ const styles = StyleSheet.create({
   padding: {
     paddingVertical: 15,
     paddingHorizontal: 15
+  },
+  channelInfo: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD',
+    borderTopWidth: 1,
+    borderTopColor: '#DDD'
+  },
+  channelIcon: {
+    width: 50,
+    height: 50
+  },
+  channelText: {
+    marginLeft: 15
+  },
+  channelTitle: {
+    fontSize: 18,
+    marginBottom: 5
   }
 });
 

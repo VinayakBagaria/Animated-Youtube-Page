@@ -20,6 +20,7 @@ import {
 import Video from 'react-native-video';
 
 import TouchableIcon from './components/TouchableIcon';
+import PlaylistVideo from './components/PlaylistVideo';
 
 import Lights from './lights.mp4';
 import Thumbnail from './thumbnail.jpg';
@@ -67,6 +68,15 @@ export default class rnvideo extends Component<Props> {
                 <Text style={styles.channelTitle}>Prerecorded MP3s</Text>
                 <Text>1M Subscribers</Text>
               </View>
+            </View>
+            <View style={styles.padding}>
+              <Text style={styles.playlistUpNext}>Up Next</Text>
+              <PlaylistVideo
+                image={Thumbnail}
+                name="Next Sweet DJ Video"
+                channel="Prerecorded MP3s"
+                views="380K"
+              />
             </View>
           </Animated.ScrollView>
         </View>

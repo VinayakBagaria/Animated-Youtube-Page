@@ -44,6 +44,7 @@ export default class rnvideo extends Component<Props> {
               resizeMode="contain"
             />
           </Animated.View>
+          <Animated.ScrollView style={[styles.scrollView]} />
         </View>
       </View>
     );
@@ -56,6 +57,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: '#FFF'
   }
 });
 

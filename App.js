@@ -20,20 +20,18 @@ import {
 import Video from 'react-native-video';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
+import Lights from './lights.mp4';
+import Thumbnail from './thumbnail.jpg';
+import ChannelIcon from './icon.png';
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class rnvideo extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity>
           <Text>Content below: Click To Reopen Video</Text>
+          <View style={StyleSheet.absoluteFill} />
         </TouchableOpacity>
       </View>
     );
@@ -58,3 +56,5 @@ const styles = StyleSheet.create({
     marginBottom: 5
   }
 });
+
+AppRegistry.registerComponent('rnvideo', () => rnvideo);

@@ -83,7 +83,9 @@ export default class rnvideo extends Component<Props> {
           <Text>Content Below: Click To Reopen Video</Text>
         </TouchableOpacity>
         <View style={StyleSheet.absoluteFill}>
-          <Animated.View style={[{width, height}]}>
+          <Animated.View
+            style={[{width, height}]}
+            {...this._panResponder.panHandlers}>
             <Video
               repeat
               style={StyleSheet.absoluteFill}

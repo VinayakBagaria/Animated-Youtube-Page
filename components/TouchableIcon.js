@@ -1,6 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, Text } from 'react-native';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { touchableIconStyles as styles } from './styles';
 
 const TouchableIcon = ({ name, children }) => (
   <TouchableOpacity style={styles.touchIcon}>
@@ -9,14 +12,9 @@ const TouchableIcon = ({ name, children }) => (
   </TouchableOpacity>
 );
 
-const styles = StyleSheet.create({
-  touchIcon: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  iconText: {
-    marginTop: 5,
-  },
-});
+TouchableIcon.propTypes = {
+  name: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default TouchableIcon;

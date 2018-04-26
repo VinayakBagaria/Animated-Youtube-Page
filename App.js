@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -19,8 +13,8 @@ import {
 } from 'react-native';
 import Video from 'react-native-video';
 
-import TouchableIcon from './components/TouchableIcon';
 import PlaylistVideo from './components/PlaylistVideo';
+import RunningVideo from './components/RunningVideo';
 
 import Lights from './lights.mp4';
 import Thumbnail from './thumbnail.jpg';
@@ -33,7 +27,7 @@ export default class rnvideo extends Component<Props> {
     // actual animated value for offset and allow our video to be draggable to its original position
     this._y = 0;
     this._animation = new Animated.Value(0);
-    this._animation.addListener(({value}) => {
+    this._animation.addListener(({ value }) => {
       this._y = value;
     });
 
@@ -83,7 +77,7 @@ export default class rnvideo extends Component<Props> {
   };
 
   render() {
-    const {width, height: screenHeight} = Dimensions.get('window');
+    const { width, height: screenHeight } = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
     const height = width * 0.5625;
 
@@ -117,14 +111,14 @@ export default class rnvideo extends Component<Props> {
     // styling according to interpolation for ScrollView
     const scrollStyles = {
       opacity: opacityInterpolate,
-      transform: [{translateY: translateYInterpolate}],
+      transform: [{ translateY: translateYInterpolate }],
     };
     // styling according to interpolation for Video
     const videoStyles = {
       transform: [
-        {translateY: translateYInterpolate},
-        {translateX: translateXInterpolate},
-        {scale: scaleInterpolate},
+        { translateY: translateYInterpolate },
+        { translateX: translateXInterpolate },
+        { scale: scaleInterpolate },
       ],
     };
 
@@ -135,7 +129,7 @@ export default class rnvideo extends Component<Props> {
         </TouchableOpacity>
         <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
           <Animated.View
-            style={[{width, height}, videoStyles]}
+            style={[{ width, height }, videoStyles]}
             {...this._panResponder.panHandlers}>
             <Video
               repeat
@@ -145,17 +139,7 @@ export default class rnvideo extends Component<Props> {
             />
           </Animated.View>
           <Animated.ScrollView style={[styles.scrollView, scrollStyles]}>
-            <View style={styles.padding}>
-              <Text style={styles.title}>Beautiful DJ Mixing Lights</Text>
-              <Text>1M Views</Text>
-              <View style={styles.likeRow}>
-                <TouchableIcon name="thumbs-up">10,000</TouchableIcon>
-                <TouchableIcon name="thumbs-down">4</TouchableIcon>
-                <TouchableIcon name="share">Share</TouchableIcon>
-                <TouchableIcon name="download">Save</TouchableIcon>
-                <TouchableIcon name="plus">Add to</TouchableIcon>
-              </View>
-            </View>
+            <RunningVideo />
             <View style={[styles.channelInfo, styles.padding]}>
               <Image
                 source={ChannelIcon}

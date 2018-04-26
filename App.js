@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -15,7 +15,7 @@ import {
   ScrollView,
   TouchableOpacity,
   PanResponder,
-  Animated
+  Animated,
 } from 'react-native';
 import Video from 'react-native-video';
 
@@ -29,7 +29,7 @@ import ChannelIcon from './icon.png';
 type Props = {};
 export default class rnvideo extends Component<Props> {
   render() {
-    const { width, height: screenHeight } = Dimensions.get('window');
+    const {width, height: screenHeight} = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
     const height = width * 0.5625;
     return (
@@ -38,7 +38,7 @@ export default class rnvideo extends Component<Props> {
           <Text>Content Below: Click To Reopen Video</Text>
         </TouchableOpacity>
         <View style={StyleSheet.absoluteFill}>
-          <Animated.View style={[{ width, height }]}>
+          <Animated.View style={[{width, height}]}>
             <Video
               repeat
               style={StyleSheet.absoluteFill}
@@ -90,45 +90,45 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   scrollView: {
     flex: 1,
-    backgroundColor: '#FFF'
+    backgroundColor: '#FFF',
   },
   title: {
-    fontSize: 28
+    fontSize: 28,
   },
   likeRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 15
+    paddingVertical: 15,
   },
   padding: {
     paddingVertical: 15,
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   },
   channelInfo: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: '#DDD',
     borderTopWidth: 1,
-    borderTopColor: '#DDD'
+    borderTopColor: '#DDD',
   },
   channelIcon: {
     width: 50,
-    height: 50
+    height: 50,
   },
   channelText: {
-    marginLeft: 15
+    marginLeft: 15,
   },
   channelTitle: {
     fontSize: 18,
-    marginBottom: 5
+    marginBottom: 5,
   },
   playlistUpNext: {
-    fontSize: 24
-  }
+    fontSize: 24,
+  },
 });
 
 AppRegistry.registerComponent('rnvideo', () => rnvideo);

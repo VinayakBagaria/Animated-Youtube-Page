@@ -54,6 +54,7 @@ export default class rnvideo extends Component<Props> {
       to 300 with a duration of 200ms. Then set offset to 300 so that video goes to bottom corner.
       Then when the user comes to drag back the video to its original position, dy = 0. But the offset will allow us to
       keep the video in the corner and allow user to control the dragging video without other things jumping.
+      300 = how far can the user drag before it cant be dragged any further - upper drag limit, should ideally be % of screen height
       */
       onPanResponderRelease: (e, gestureState) => {
         if (gestureState.dy > 100) {
@@ -77,6 +78,33 @@ export default class rnvideo extends Component<Props> {
     const {width, height: screenHeight} = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
     const height = width * 0.5625;
+    // opacity of Animated.ScrollView as video is dragged away
+    const opacityInterpolate = this._animation.interpolate({
+      inputRange: [0, 300],
+      outputRange: [1, 0],
+    });
+    /*
+    Used for both Video and ScrollView to move our views out of the way in Y-axis.
+    Final o/p: video is moved to bottom corner = length of ScrollView = screenHeight - height of video + some offset from corner.
+    extrapolate = clamp, otherwise as user drags beyond 300, outputRange would cause translateY property above our calculation above and video will go offscreen down.
+    */
+    const translateYInterpolate = this._animation.interpolate({
+      inputRange: [0, 300],
+      outputRange: [0, screenHeight - height + 40],
+      extrapolate: 'clamp',
+    });
+    // properties of the video for scale and translation along X-axis
+    const scaleInterpolate = this._animation.interpolate({
+      inputRange: [0, 300],
+      outputRange: [1, 0.5],
+      extrapolate: 'clamp',
+    });
+    const translateXInterpolate = this._animation.interpolate({
+      inputRange: [0, 300],
+      outputRange: [0, 85],
+      extrapolate: 'clamp',
+    });
+
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.handleOpen}>

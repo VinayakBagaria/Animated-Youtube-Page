@@ -48,6 +48,28 @@ export default class rnvideo extends Component<Props> {
           dy: this._animation,
         },
       ]),
+      /*
+      What we do here in when the video dragging is released.
+      If dy > 100, means user has dragged the video more than 100px in y-direction downwards, then trigger the Animation
+      to 300 with a duration of 200ms. Then set offset to 300 so that video goes to bottom corner.
+      Then when the user comes to drag back the video to its original position, dy = 0. But the offset will allow us to
+      keep the video in the corner and allow user to control the dragging video without other things jumping.
+      */
+      onPanResponderRelease: (e, gestureState) => {
+        if (gestureState.dy > 100) {
+          Animated.timing(this._animation, {
+            toValue: 300,
+            duration: 200,
+          }).start();
+          this._animation.setOffset(300);
+        } else {
+          this._animation.setOffset(0);
+          Animated.timing(this._animation, {
+            toValue: 0,
+            duration: 200,
+          }).start();
+        }
+      },
     });
   }
 

@@ -175,6 +175,24 @@ export default class rnvideo extends Component<Props> {
                 channel="Prerecorded MP3s"
                 views="380K"
               />
+              <PlaylistVideo
+                image={Thumbnail}
+                name="Next Sweet DJ Video"
+                channel="Prerecorded MP3s"
+                views="380K"
+              />
+              <PlaylistVideo
+                image={Thumbnail}
+                name="Next Sweet DJ Video"
+                channel="Prerecorded MP3s"
+                views="380K"
+              />
+              <PlaylistVideo
+                image={Thumbnail}
+                name="Next Sweet DJ Video"
+                channel="Prerecorded MP3s"
+                views="380K"
+              />
             </View>
           </Animated.ScrollView>
         </View>

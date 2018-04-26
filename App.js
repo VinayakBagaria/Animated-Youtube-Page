@@ -78,6 +78,7 @@ export default class rnvideo extends Component<Props> {
     const {width, height: screenHeight} = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
     const height = width * 0.5625;
+
     // opacity of Animated.ScrollView as video is dragged away
     const opacityInterpolate = this._animation.interpolate({
       inputRange: [0, 300],
@@ -105,6 +106,20 @@ export default class rnvideo extends Component<Props> {
       extrapolate: 'clamp',
     });
 
+    // styling according to interpolation for ScrollView
+    const scrollStyles = {
+      opacity: opacityInterpolate,
+      transform: [{translateY: translateYInterpolate}],
+    };
+    // styling according to interpolation for Video
+    const videoStyles = {
+      transform: [
+        {translateY: translateYInterpolate},
+        {translateX: translateXInterpolate},
+        {scale: scaleInterpolate},
+      ],
+    };
+
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.handleOpen}>
@@ -112,7 +127,7 @@ export default class rnvideo extends Component<Props> {
         </TouchableOpacity>
         <View style={StyleSheet.absoluteFill}>
           <Animated.View
-            style={[{width, height}]}
+            style={[{width, height}, videoStyles]}
             {...this._panResponder.panHandlers}>
             <Video
               repeat
@@ -121,7 +136,7 @@ export default class rnvideo extends Component<Props> {
               resizeMode="contain"
             />
           </Animated.View>
-          <Animated.ScrollView style={[styles.scrollView]}>
+          <Animated.ScrollView style={[styles.scrollView, scrollStyles]}>
             <View style={styles.padding}>
               <Text style={styles.title}>Beautiful DJ Mixing Lights</Text>
               <Text>1M Views</Text>

@@ -139,18 +139,7 @@ export default class rnvideo extends Component<Props> {
             />
           </Animated.View>
           <Animated.ScrollView style={[styles.scrollView, scrollStyles]}>
-            <RunningVideoDetails />
-            <View style={[styles.channelInfo, styles.padding]}>
-              <Image
-                source={ChannelIcon}
-                style={styles.channelIcon}
-                resizeMode="contain"
-              />
-              <View style={styles.channelText}>
-                <Text style={styles.channelTitle}>Prerecorded MP3s</Text>
-                <Text>1M Subscribers</Text>
-              </View>
-            </View>
+            <RunningVideoDetails channelIcon={ChannelIcon} />
             <View style={styles.padding}>
               <Text style={styles.playlistUpNext}>Up Next</Text>
               <PlaylistVideo
@@ -196,35 +185,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
-  title: {
-    fontSize: 28,
-  },
-  likeRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 15,
-  },
   padding: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-  },
-  channelInfo: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#DDD',
-    borderTopWidth: 1,
-    borderTopColor: '#DDD',
-  },
-  channelIcon: {
-    width: 50,
-    height: 50,
-  },
-  channelText: {
-    marginLeft: 15,
-  },
-  channelTitle: {
-    fontSize: 18,
-    marginBottom: 5,
   },
   playlistUpNext: {
     fontSize: 24,

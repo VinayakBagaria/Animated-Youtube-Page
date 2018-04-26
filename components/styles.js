@@ -10,7 +10,7 @@ const touchableIconStyles = StyleSheet.create({
   },
 });
 
-const runningVideoStyles = StyleSheet.create({
+const runningVideoDetailsStyles = StyleSheet.create({
   padding: {
     paddingVertical: 15,
     paddingHorizontal: 15,
@@ -22,6 +22,24 @@ const runningVideoStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingVertical: 15,
+  },
+  channelInfo: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD',
+    borderTopWidth: 1,
+    borderTopColor: '#DDD',
+  },
+  channelIcon: {
+    width: 50,
+    height: 50,
+  },
+  channelText: {
+    marginLeft: 15,
+  },
+  channelTitle: {
+    fontSize: 18,
+    marginBottom: 5,
   },
 });
 
@@ -49,4 +67,4 @@ const playlistVideoStyles = StyleSheet.create({
   },
 });
 
-export { touchableIconStyles, runningVideoStyles, playlistVideoStyles };
+export { touchableIconStyles, runningVideoDetailsStyles, playlistVideoStyles };

@@ -5,13 +5,47 @@ const padding = {
   paddingHorizontal: 15,
 };
 
-const touchableIconStyles = StyleSheet.create({
-  touchIcon: {
-    alignItems: 'center',
+const appStyles = StyleSheet.create({
+  container: {
+    flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  iconText: {
-    marginTop: 5,
+  scrollView: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
+});
+
+const playlistComponentStyles = StyleSheet.create({
+  padding,
+  playlistUpNext: {
+    fontSize: 24,
+  },
+});
+
+const playlistVideoStyles = StyleSheet.create({
+  playlistVideo: {
+    flexDirection: 'row',
+    height: 100,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  playlistThumbnail: {
+    width: null,
+    height: null,
+    flex: 1,
+  },
+  playlistText: {
+    flex: 2,
+    paddingLeft: 15,
+  },
+  playlistVideoTitle: {
+    fontSize: 18,
+  },
+  playlistSubText: {
+    color: '#555',
   },
 });
 
@@ -45,54 +79,20 @@ const runningVideoDetailsStyles = StyleSheet.create({
   },
 });
 
-const playlistVideoStyles = StyleSheet.create({
-  playlistVideo: {
-    flexDirection: 'row',
-    height: 100,
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  playlistThumbnail: {
-    width: null,
-    height: null,
-    flex: 1,
-  },
-  playlistText: {
-    flex: 2,
-    paddingLeft: 15,
-  },
-  playlistVideoTitle: {
-    fontSize: 18,
-  },
-  playlistSubText: {
-    color: '#555',
-  },
-});
-
-const playlistComponentStyles = StyleSheet.create({
-  padding,
-  playlistUpNext: {
-    fontSize: 24,
-  },
-});
-
-const appStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
+const touchableIconStyles = StyleSheet.create({
+  touchIcon: {
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center',
   },
-  scrollView: {
-    flex: 1,
-    backgroundColor: '#FFF',
+  iconText: {
+    marginTop: 5,
   },
 });
 
 export {
-  touchableIconStyles,
-  runningVideoDetailsStyles,
-  playlistVideoStyles,
-  playlistComponentStyles,
   appStyles,
+  playlistComponentStyles,
+  playlistVideoStyles,
+  runningVideoDetailsStyles,
+  touchableIconStyles,
 };

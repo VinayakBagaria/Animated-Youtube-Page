@@ -4,7 +4,7 @@ module.exports = {
       true - Example: { foo: bar }.
       false - Example: {foo: bar}.
     */
-  bracketSpacing: false,
+  bracketSpacing: true,
   /*
       use single quotes instead of double. Quotes in JSX will always be double and ignore this setting
     */

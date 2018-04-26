@@ -14,7 +14,7 @@ import {
 import Video from 'react-native-video';
 
 import PlaylistVideo from './components/PlaylistVideo';
-import RunningVideo from './components/RunningVideo';
+import RunningVideoDetails from './components/RunningVideoDetails';
 
 import Lights from './lights.mp4';
 import Thumbnail from './thumbnail.jpg';
@@ -139,7 +139,7 @@ export default class rnvideo extends Component<Props> {
             />
           </Animated.View>
           <Animated.ScrollView style={[styles.scrollView, scrollStyles]}>
-            <RunningVideo />
+            <RunningVideoDetails />
             <View style={[styles.channelInfo, styles.padding]}>
               <Image
                 source={ChannelIcon}

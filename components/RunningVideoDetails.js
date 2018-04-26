@@ -5,7 +5,7 @@ import TouchableIcon from './TouchableIcon';
 
 import { runningVideoStyles as styles } from './styles';
 
-const RunningVideo = () => (
+const RunningVideoDetails = () => (
   <View style={styles.padding}>
     <Text style={styles.title}>Beautiful DJ Mixing Lights</Text>
     <Text>1M Views</Text>
@@ -19,4 +19,4 @@ const RunningVideo = () => (
   </View>
 );
 
-export default RunningVideo;
+export default RunningVideoDetails;

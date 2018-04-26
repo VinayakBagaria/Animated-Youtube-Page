@@ -14,7 +14,7 @@ const TouchableIcon = ({ name, children }) => (
 
 TouchableIcon.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default TouchableIcon;

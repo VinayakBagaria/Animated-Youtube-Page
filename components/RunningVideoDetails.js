@@ -6,14 +6,22 @@ import TouchableIcon from './TouchableIcon';
 
 import { runningVideoDetailsStyles as styles } from './styles';
 
-const RunningVideoDetails = ({ channelIcon }) => (
+const RunningVideoDetails = ({
+  title,
+  views,
+  likes,
+  dislikes,
+  channelIcon,
+  channelName,
+  channelSubscribers,
+}) => (
   <Fragment>
     <View style={styles.padding}>
-      <Text style={styles.title}>Beautiful DJ Mixing Lights</Text>
-      <Text>1M Views</Text>
+      <Text style={styles.title}>{title}</Text>
+      <Text>{views} Views</Text>
       <View style={styles.likeRow}>
-        <TouchableIcon name="thumbs-up">10,000</TouchableIcon>
-        <TouchableIcon name="thumbs-down">4</TouchableIcon>
+        <TouchableIcon name="thumbs-up">{likes}</TouchableIcon>
+        <TouchableIcon name="thumbs-down">{dislikes}</TouchableIcon>
         <TouchableIcon name="share">Share</TouchableIcon>
         <TouchableIcon name="download">Save</TouchableIcon>
         <TouchableIcon name="plus">Add to</TouchableIcon>
@@ -26,15 +34,21 @@ const RunningVideoDetails = ({ channelIcon }) => (
         resizeMode="contain"
       />
       <View style={styles.channelText}>
-        <Text style={styles.channelTitle}>Prerecorded MP3s</Text>
-        <Text>1M Subscribers</Text>
+        <Text style={styles.channelTitle}>{channelName}</Text>
+        <Text>{channelSubscribers} Subscribers</Text>
       </View>
     </View>
   </Fragment>
 );
 
 RunningVideoDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  views: PropTypes.string.isRequired,
+  likes: PropTypes.string.isRequired,
+  dislikes: PropTypes.string.isRequired,
   channelIcon: PropTypes.number.isRequired,
+  channelName: PropTypes.string.isRequired,
+  channelSubscribers: PropTypes.string.isRequired,
 };
 
 export default RunningVideoDetails;

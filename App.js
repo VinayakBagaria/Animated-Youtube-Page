@@ -139,7 +139,15 @@ export default class rnvideo extends Component<Props> {
             />
           </Animated.View>
           <Animated.ScrollView style={[styles.scrollView, scrollStyles]}>
-            <RunningVideoDetails channelIcon={ChannelIcon} />
+            <RunningVideoDetails
+              title="Beautiful DJ Mixing Lights"
+              views="1M"
+              likes="10,000"
+              dislikes="4"
+              channelIcon={ChannelIcon}
+              channelName="Prerecorded MP3s"
+              channelSubscribers="4M"
+            />
             <View style={styles.padding}>
               <Text style={styles.playlistUpNext}>Up Next</Text>
               <PlaylistVideo

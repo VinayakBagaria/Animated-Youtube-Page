@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  Image,
   Dimensions,
   ScrollView,
   TouchableOpacity,
@@ -19,8 +17,7 @@ import RunningVideoDetails from './components/RunningVideoDetails';
 import Lights from './lights.mp4';
 import ChannelIcon from './icon.png';
 
-type Props = {};
-export default class rnvideo extends Component<Props> {
+class App extends Component {
   // PanResponder = touchable and draggable content
   componentWillMount() {
     // actual animated value for offset and allow our video to be draggable to its original position
@@ -166,10 +163,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFF',
   },
-  padding: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-  },
 });
 
-AppRegistry.registerComponent('rnvideo', () => rnvideo);
+export default App;

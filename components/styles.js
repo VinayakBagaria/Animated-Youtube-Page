@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+const padding = {
+  paddingVertical: 15,
+  paddingHorizontal: 15,
+};
+
 const touchableIconStyles = StyleSheet.create({
   touchIcon: {
     alignItems: 'center',
@@ -11,10 +16,7 @@ const touchableIconStyles = StyleSheet.create({
 });
 
 const runningVideoDetailsStyles = StyleSheet.create({
-  padding: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-  },
+  padding,
   title: {
     fontSize: 28,
   },
@@ -67,4 +69,16 @@ const playlistVideoStyles = StyleSheet.create({
   },
 });
 
-export { touchableIconStyles, runningVideoDetailsStyles, playlistVideoStyles };
+const playlistComponentStyles = StyleSheet.create({
+  padding,
+  playlistUpNext: {
+    fontSize: 24,
+  },
+});
+
+export {
+  touchableIconStyles,
+  runningVideoDetailsStyles,
+  playlistVideoStyles,
+  playlistComponentStyles,
+};

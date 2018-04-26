@@ -13,11 +13,10 @@ import {
 } from 'react-native';
 import Video from 'react-native-video';
 
-import PlaylistVideo from './components/PlaylistVideo';
+import PlaylistComponent from './components/PlaylistComponent';
 import RunningVideoDetails from './components/RunningVideoDetails';
 
 import Lights from './lights.mp4';
-import Thumbnail from './thumbnail.jpg';
 import ChannelIcon from './icon.png';
 
 type Props = {};
@@ -148,33 +147,7 @@ export default class rnvideo extends Component<Props> {
               channelName="Prerecorded MP3s"
               channelSubscribers="4M"
             />
-            <View style={styles.padding}>
-              <Text style={styles.playlistUpNext}>Up Next</Text>
-              <PlaylistVideo
-                image={Thumbnail}
-                name="Next Sweet DJ Video"
-                channel="Prerecorded MP3s"
-                views="380K"
-              />
-              <PlaylistVideo
-                image={Thumbnail}
-                name="Next Sweet DJ Video"
-                channel="Prerecorded MP3s"
-                views="380K"
-              />
-              <PlaylistVideo
-                image={Thumbnail}
-                name="Next Sweet DJ Video"
-                channel="Prerecorded MP3s"
-                views="380K"
-              />
-              <PlaylistVideo
-                image={Thumbnail}
-                name="Next Sweet DJ Video"
-                channel="Prerecorded MP3s"
-                views="380K"
-              />
-            </View>
+            <PlaylistComponent />
           </Animated.ScrollView>
         </View>
       </View>
@@ -196,9 +169,6 @@ const styles = StyleSheet.create({
   padding: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-  },
-  playlistUpNext: {
-    fontSize: 24,
   },
 });
 

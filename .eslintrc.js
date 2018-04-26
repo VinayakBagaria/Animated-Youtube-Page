@@ -12,7 +12,7 @@ module.exports = {
     // allows omitting parens when there is only 1 arg
     'arrow-parens': [ERROR, 'as-needed'],
     // spacing before and after the arrow
-    'arrow-spacing': [ERROR, {before: true, after: true}],
+    'arrow-spacing': [ERROR, { before: true, after: true }],
     /*
    One True Brace Style - opening brace of a block is placed on the same line as its corresponding statement or declaration. Like for func, if, try, loops
    */
@@ -31,7 +31,7 @@ module.exports = {
     // prefer using double quotes in jsx whenever possible
     'jsx-quotes': [ERROR, 'prefer-double'],
     // allow spacing before and after keywords like func, if, loops
-    'keyword-spacing': [ERROR, {after: true, before: true}],
+    'keyword-spacing': [ERROR, { after: true, before: true }],
     // linebreaks in different OS shouldn't matter
     'linebreak-style': OFF,
     // no function declaration in nested blocks, such as inside if
@@ -44,9 +44,10 @@ module.exports = {
    */
     'no-shadow': ERROR,
     // all named args must be used, and there must be no unused variables
-    'no-unused-vars': [ERROR, {args: 'all'}],
+    'no-unused-vars': [ERROR, { args: 'all' }],
     // unnecessary to concatenate two strings together
     'no-useless-concat': ERROR,
+    'object-curly-newline': OFF,
     /*
    allow use of single quotes wherever possible
    avoidEscape: var double = "a string containing 'single' quotes"; is correct
@@ -72,7 +73,7 @@ module.exports = {
     // not use ={true} when passing truthy values as props
     'react/jsx-boolean-value': [ERROR, 'never'],
     // allow JSX to be used only in .js files
-    'react/jsx-filename-extension': [ERROR, {extensions: ['.js']}],
+    'react/jsx-filename-extension': [ERROR, { extensions: ['.js'] }],
     'react/boolean-prop-naming': [
       ERROR,
       {

@@ -25,4 +25,28 @@ const runningVideoStyles = StyleSheet.create({
   },
 });
 
-export { touchableIconStyles, runningVideoStyles };
+const playlistVideoStyles = StyleSheet.create({
+  playlistVideo: {
+    flexDirection: 'row',
+    height: 100,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  playlistThumbnail: {
+    width: null,
+    height: null,
+    flex: 1,
+  },
+  playlistText: {
+    flex: 2,
+    paddingLeft: 15,
+  },
+  playlistVideoTitle: {
+    fontSize: 18,
+  },
+  playlistSubText: {
+    color: '#555',
+  },
+});
+
+export { touchableIconStyles, runningVideoStyles, playlistVideoStyles };

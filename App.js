@@ -74,6 +74,14 @@ export default class rnvideo extends Component<Props> {
     });
   }
 
+  handleOpen = () => {
+    this._animation.setOffset(0);
+    Animated.timing(this._animation, {
+      toValue: 0,
+      duration: 200,
+    }).start();
+  };
+
   render() {
     const {width, height: screenHeight} = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height
@@ -125,7 +133,7 @@ export default class rnvideo extends Component<Props> {
         <TouchableOpacity onPress={this.handleOpen}>
           <Text>Content Below: Click To Reopen Video</Text>
         </TouchableOpacity>
-        <View style={StyleSheet.absoluteFill}>
+        <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
           <Animated.View
             style={[{width, height}, videoStyles]}
             {...this._panResponder.panHandlers}>

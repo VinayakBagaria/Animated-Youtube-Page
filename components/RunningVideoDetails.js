@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native';
 
 import TouchableIcon from './TouchableIcon';
 
-import { runningVideoDetailsStyles as styles } from './styles';
+import { runningVideoDetailsStyles as styles } from '../styles';
 
 const RunningVideoDetails = ({
   title,

@@ -14,6 +14,8 @@ import Video from 'react-native-video';
 import PlaylistComponent from './components/PlaylistComponent';
 import RunningVideoDetails from './components/RunningVideoDetails';
 
+import { appStyles as styles } from './styles';
+
 import Lights from './lights.mp4';
 import ChannelIcon from './icon.png';
 
@@ -151,18 +153,5 @@ class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  scrollView: {
-    flex: 1,
-    backgroundColor: '#FFF',
-  },
-});
 
 export default App;

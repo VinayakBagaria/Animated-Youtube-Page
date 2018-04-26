@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native';
 
-import { playlistVideoStyles as styles } from './styles';
+import { playlistVideoStyles as styles } from '../styles';
 
 const PlaylistVideo = ({ name, channel, views, image }) => (
   <View style={styles.playlistVideo}>

@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import PlaylistVideo from './PlaylistVideo';
 
-import { playlistComponentStyles as styles } from './styles';
+import { playlistComponentStyles as styles } from '../styles';
 
 import Thumbnail from '../thumbnail.jpg';
 

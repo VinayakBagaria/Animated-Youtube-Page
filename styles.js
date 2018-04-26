@@ -76,9 +76,23 @@ const playlistComponentStyles = StyleSheet.create({
   },
 });
 
+const appStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
+});
+
 export {
   touchableIconStyles,
   runningVideoDetailsStyles,
   playlistVideoStyles,
   playlistComponentStyles,
+  appStyles,
 };

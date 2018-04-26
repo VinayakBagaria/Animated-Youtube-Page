@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, Text } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { touchableIconStyles as styles } from './styles';
+import { touchableIconStyles as styles } from '../styles';
 
 const TouchableIcon = ({ name, children }) => (
   <TouchableOpacity style={styles.touchIcon}>

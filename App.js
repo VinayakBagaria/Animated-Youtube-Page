@@ -28,6 +28,29 @@ import ChannelIcon from './icon.png';
 
 type Props = {};
 export default class rnvideo extends Component<Props> {
+  // PanResponder = touchable and draggable content
+  componentWillMount() {
+    // actual animated value for offset and allow our video to be draggable to its original position
+    this._y = 0;
+    this._animation = new Animated.Value(0);
+    this._animation.addListener(({value}) => {
+      this._y = value;
+    });
+
+    // 1st two keys tell RN that we want to receive touch events
+    // dy = change in position from the original point that the finger was put down on
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([
+        null,
+        {
+          dy: this._animation,
+        },
+      ]),
+    });
+  }
+
   render() {
     const {width, height: screenHeight} = Dimensions.get('window');
     // Video dimen: 1920 * 1080. Thus 1080/1920 = 0.5625: ratio of width to height

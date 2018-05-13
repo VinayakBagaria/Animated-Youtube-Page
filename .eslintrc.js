@@ -2,9 +2,13 @@ const OFF = 0;
 const ERROR = 2;
 
 module.exports = {
-  extends: 'airbnb',
+  extends: ['airbnb', 'prettier'],
+  plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
+  parser: 'babel-eslint',
+  // stop eslint from looking for a config file in parent folders
   root: true,
   rules: {
+    'prettier/prettier': ERROR,
     /*
     If a JS object has a setter for a property, make sure there exists a getter property to read it. Reverse may not be true.
     */
@@ -14,13 +18,13 @@ module.exports = {
     // spacing before and after the arrow
     'arrow-spacing': [ERROR, { before: true, after: true }],
     /*
-   One True Brace Style - opening brace of a block is placed on the same line as its corresponding statement or declaration. Like for func, if, try, loops
-   */
+    One True Brace Style - opening brace of a block is placed on the same line as its corresponding statement or declaration. Like for func, if, try, loops
+    */
     'brace-style': [ERROR, '1tbs'],
     /*
-   requires trailing commas when last prop is in a diff line than closing ] or },
-   disallow trailing commas when last element is on the same line as a closing ] or }
-   */
+    requires trailing commas when last prop is in a diff line than closing ] or },
+    disallow trailing commas when last element is on the same line as a closing ] or }
+    */
     'comma-dangle': [ERROR, 'always-multiline'],
     // use dot notation whenever possible, like error on foo['bar']
     'dot-notation': ERROR,
@@ -32,26 +36,23 @@ module.exports = {
     'jsx-quotes': [ERROR, 'prefer-double'],
     // allow spacing before and after keywords like func, if, loops
     'keyword-spacing': [ERROR, { after: true, before: true }],
-    // linebreaks in different OS shouldn't matter
-    'linebreak-style': OFF,
     // no function declaration in nested blocks, such as inside if
     'no-inner-declarations': [ERROR, 'functions'],
     'no-multi-spaces': ERROR,
     // dont use with statement in js
     'no-restricted-syntax': [ERROR, 'WithStatement'],
     /*
-   Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. Eliminate shadowed variables declarations.
-   */
+    Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. Eliminate shadowed variables declarations.
+    */
     'no-shadow': ERROR,
     // all named args must be used, and there must be no unused variables
     'no-unused-vars': [ERROR, { args: 'all' }],
     // unnecessary to concatenate two strings together
     'no-useless-concat': ERROR,
-    'object-curly-newline': OFF,
     /*
-   allow use of single quotes wherever possible
-   avoidEscape: var double = "a string containing 'single' quotes"; is correct
-   */
+    allow use of single quotes wherever possible
+    avoidEscape: var double = "a string containing 'single' quotes"; is correct
+    */
     quotes: [
       ERROR,
       'single',
@@ -61,10 +62,10 @@ module.exports = {
       },
     ],
     /*
-   applied on blocks that don't begin on a new line
-   ignore spacing b/w => and block - arrow-spacing
-   ignore spacing b/w a keyword and a block - keyword-spacing
-   */
+    applied on blocks that don't begin on a new line
+    ignore spacing b/w => and block - arrow-spacing
+    ignore spacing b/w a keyword and a block - keyword-spacing
+    */
     'space-before-blocks': ERROR,
     // always require a space b/w func name and (
     'space-before-function-paren': ERROR,
@@ -81,11 +82,14 @@ module.exports = {
       },
     ],
     /*
-   Components without children can be self-closed to avoid unnecessary extra closing tag.
-   */
+    Components without children can be self-closed to avoid unnecessary extra closing tag.
+    */
     'react/self-closing-comp': ERROR,
     'react/no-unused-state': ERROR,
     // allow default values for unrequired props
     'react/default-props-match-prop-types': OFF,
+  },
+  env: {
+    browser: true,
   },
 };

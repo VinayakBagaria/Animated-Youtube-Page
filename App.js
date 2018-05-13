@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Dimensions,
-  ScrollView,
   TouchableOpacity,
   PanResponder,
   Animated,
@@ -23,21 +22,21 @@ class App extends Component {
   // PanResponder = touchable and draggable content
   componentWillMount() {
     // actual animated value for offset and allow our video to be draggable to its original position
-    this._y = 0;
-    this._animation = new Animated.Value(0);
-    this._animation.addListener(({ value }) => {
-      this._y = value;
+    this.y = 0;
+    this.animation = new Animated.Value(0);
+    this.animation.addListener(({ value }) => {
+      this.y = value;
     });
 
     // 1st two keys tell RN that we want to receive touch events
     // dy = change in position from the original point that the finger was put down on
-    this._panResponder = PanResponder.create({
+    this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event([
         null,
         {
-          dy: this._animation,
+          dy: this.animation,
         },
       ]),
       /*
@@ -50,14 +49,14 @@ class App extends Component {
       */
       onPanResponderRelease: (e, gestureState) => {
         if (gestureState.dy > 100) {
-          Animated.timing(this._animation, {
+          Animated.timing(this.animation, {
             toValue: 300,
             duration: 200,
           }).start();
-          this._animation.setOffset(300);
+          this.animation.setOffset(300);
         } else {
-          this._animation.setOffset(0);
-          Animated.timing(this._animation, {
+          this.animation.setOffset(0);
+          Animated.timing(this.animation, {
             toValue: 0,
             duration: 200,
           }).start();
@@ -67,8 +66,8 @@ class App extends Component {
   }
 
   handleOpen = () => {
-    this._animation.setOffset(0);
-    Animated.timing(this._animation, {
+    this.animation.setOffset(0);
+    Animated.timing(this.animation, {
       toValue: 0,
       duration: 200,
     }).start();
@@ -80,7 +79,7 @@ class App extends Component {
     const height = width * 0.5625;
 
     // opacity of Animated.ScrollView as video is dragged away
-    const opacityInterpolate = this._animation.interpolate({
+    const opacityInterpolate = this.animation.interpolate({
       inputRange: [0, 300],
       outputRange: [1, 0],
     });
@@ -89,18 +88,18 @@ class App extends Component {
     Final o/p: video is moved to bottom corner = length of ScrollView = screenHeight - height of video + some offset from corner.
     extrapolate = clamp, otherwise as user drags beyond 300, outputRange would cause translateY property above our calculation above and video will go offscreen down.
     */
-    const translateYInterpolate = this._animation.interpolate({
+    const translateYInterpolate = this.animation.interpolate({
       inputRange: [0, 300],
       outputRange: [0, screenHeight - height + 40],
       extrapolate: 'clamp',
     });
     // properties of the video for scale and translation along X-axis
-    const scaleInterpolate = this._animation.interpolate({
+    const scaleInterpolate = this.animation.interpolate({
       inputRange: [0, 300],
       outputRange: [1, 0.5],
       extrapolate: 'clamp',
     });
-    const translateXInterpolate = this._animation.interpolate({
+    const translateXInterpolate = this.animation.interpolate({
       inputRange: [0, 300],
       outputRange: [0, 85],
       extrapolate: 'clamp',
@@ -128,7 +127,8 @@ class App extends Component {
         <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
           <Animated.View
             style={[{ width, height }, videoStyles]}
-            {...this._panResponder.panHandlers}>
+            {...this.panResponder.panHandlers}
+          >
             <Video
               repeat
               style={StyleSheet.absoluteFill}

@@ -10,19 +10,19 @@ PS: Video, images, text are all hard-coded. Those can easily be replaced with co
 
 # Screenshots
 
-## Streaming video page with details
+### Streaming video page with details
 
 <p align="center">
   <img src="videodetails.jpeg" height="50%" width="50%">
 </p>
 
-## Scroll view of upcoming videos below the current one
+### Scroll view of upcoming videos below the current one
 
 <p align="center">
 <img src="scrollview.jpeg" height="50%" width="50%">
 </p>
 
-## Drag to minimise the video while it still plays, click on it to resize back to full screen
+### Drag to minimise the video while it still plays, click on it to resize back to full screen
 
 <p align="center">
 <img src="reopen.jpeg" height="50%" width="50%">
@@ -37,16 +37,16 @@ PS: Video, images, text are all hard-coded. Those can easily be replaced with co
 
 # What is used?
 
-## Frameworks
+### Frameworks
 
 * [React Native](https://facebook.github.io/react-native)
 
-## Dependencies
+### Dependencies
 
 * [React-Native-Video](https://github.com/react-native-community/react-native-video)
 * [React-Native-Vector-Icons](https://github.com/oblador/react-native-vector-icons)
 
-## Additional Tools
+### Additional Tools
 
 * [ESLint](https://eslint.org/) - Linter for JS and JSX
 * [Prettier](https://prettier.io/) - Code formatter

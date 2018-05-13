@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint --fix .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "prettier": "prettier --write **/*.js",
     "precommit": "lint-staged"
   },

@@ -51,7 +51,7 @@ PS: Video, images, text are all hard-coded. Those can easily be replaced with co
 * [ESLint](https://eslint.org/) - Linter for JS and JSX
 * [Prettier](https://prettier.io/) - Code formatter
 * [Lint-Staged](https://github.com/okonet/lint-staged) - Runs Prettier against staged JS files
-* [Husky](https://github.com/typicode/husky) - Runs Lint-Staged before git commits and push
+* [Husky](https://github.com/typicode/husky) - Runs Lint-Staged before git commits
 
 # TODO
 
